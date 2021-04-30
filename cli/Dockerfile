@@ -21,7 +21,7 @@ RUN set -ex; \
 		postgresql-dev openldap-dev yaml-dev \
 	; \
 	\
-	curl -L https://github.com/mlocati/docker-php-extension-installer/releases/download/1.2.12/install-php-extensions > /usr/local/bin/install-php-extensions \
+	curl -L https://github.com/mlocati/docker-php-extension-installer/releases/download/1.2.24/install-php-extensions > /usr/local/bin/install-php-extensions \
 	; \
 	chmod +x /usr/local/bin/install-php-extensions ; \
 	\
