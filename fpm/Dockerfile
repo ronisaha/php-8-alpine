@@ -46,7 +46,7 @@ RUN set -ex; \
 	docker-php-ext-configure xsl; \
 	docker-php-ext-configure intl; \
 	docker-php-ext-configure gd; \
-	docker-php-ext-install gd pdo pdo_pgsql pdo_mysql opcache zip exif xsl ldap intl gettext iconv; \
+	docker-php-ext-install bcmath gd pdo pdo_pgsql pdo_mysql opcache zip exif xsl ldap intl gettext iconv; \
 	docker-php-ext-enable apcu yaml redis; \
 	\
 	runDeps="$( \
