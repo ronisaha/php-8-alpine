@@ -1,4 +1,4 @@
-FROM php:8.0.0-fpm-alpine
+FROM php:8.0.5-fpm-alpine
 
 MAINTAINER Roni Kumar Saha <roni.csed@gmail.com>
 

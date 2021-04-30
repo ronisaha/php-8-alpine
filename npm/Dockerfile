@@ -1,4 +1,4 @@
-FROM php:8.0.2-cli-alpine
+FROM php:8.0.5-cli-alpine
 
 MAINTAINER Roni Kumar Saha <roni.csed@gmail.com>
 
