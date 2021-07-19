@@ -1,5 +1,5 @@
 # php-8.0-alpine
-Docker image with php-8.0.2-alpine
+Docker image with php-8.0.8-alpine
 
 All image contain following php extension graphviz and composer.
 
