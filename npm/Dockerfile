@@ -26,8 +26,10 @@ RUN set -ex; \
 	chmod +x /usr/local/bin/install-php-extensions ; \
 	\
 	apk add --no-cache \
-        imagemagick gettext nodejs nodejs-npm; \
+    imagemagick gettext nodejs npm; \
+    npm i -g npm; \
 	install-php-extensions imagick amqp; \
+
 	pecl install apcu; \
 	pecl install yaml; \
 	pecl install redis; \
@@ -56,6 +58,5 @@ RUN { \
     } > /usr/local/etc/php/conf.d/00-override.ini ;
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-#COPY --from=symfonycorp/cli:latest /symfony /usr/bin/symfony
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
