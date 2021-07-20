@@ -93,6 +93,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
-#Replace with patched QT build
+#Replace with local patched QT build
 COPY wkhtmltopdf /usr/bin/wkhtmltopdf
 
