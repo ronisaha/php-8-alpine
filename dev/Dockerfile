@@ -1,4 +1,4 @@
-FROM php:8.0.8-fpm-alpine
+FROM php:8.0.8-fpm-alpine3.13
 
 MAINTAINER Roni Kumar Saha <roni.csed@gmail.com>
 
@@ -90,12 +90,12 @@ RUN { \
             echo 'rlimit_core = unlimited'; \
     } >> /usr/local/etc/php-fpm.d/zz-docker.conf
 
-RUN curl -sS https://getcomposer.org/installer | php &&\
-    chmod +x composer.phar &&\
-    mv composer.phar /usr/local/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+COPY --from=symfonycorp/cli:latest /symfony /usr/bin/symfony
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 #Replace with patched QT build
-COPY --from=opencomp/wkhtmltopdf:0.12.6-alpine3.12 /bin/wkhtmltopdf /usr/bin/wkhtmltopdf
+COPY --from=registry.hub.docker.com/ronisaha/wkhtmltopdf-qt-alpine-3.12 /usr/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
+
 
