@@ -94,5 +94,5 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 #Replace with patched QT build
-COPY wkhtmltopdf /usr/bin/wkhtmltopdf
+COPY --from=registry.hub.docker.com/ronisaha/wkhtmltopdf-qt-alpine-3.12 /usr/bin/wkhtmltopdf /usr/bin/wkhtmltopdf
 
