@@ -25,7 +25,7 @@ jobs:
             folder=${dockerFilePath%"/Dockerfile"}
             VERSION=${folder##*/}
 
-            cp bin/wkhtmltopdf ${{ $folder }}/
+            cp bin/wkhtmltopdf ${{ folder }}/
             tmpName="image-$RANDOM"
             docker build $folder --file $folder/Dockerfile --tag $tmpName
             IMAGE_ID=${{ secrets.DOCKER_REGISTRY_URL }}/${{ secrets.IMAGE_NAME }}
