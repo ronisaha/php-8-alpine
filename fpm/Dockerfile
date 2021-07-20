@@ -1,4 +1,4 @@
-FROM php:8.0.8-fpm-alpine
+FROM php:8.0.8-fpm-alpine3.13
 
 MAINTAINER Roni Kumar Saha <roni.csed@gmail.com>
 
@@ -94,5 +94,5 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
 #Replace with patched QT build
-COPY --from=opencomp/wkhtmltopdf:0.12.6-alpine3.12 /bin/wkhtmltopdf /usr/bin/wkhtmltopdf
+COPY wkhtmltopdf /usr/bin/wkhtmltopdf
 
