@@ -1,4 +1,4 @@
-FROM php:8.0.8-fpm-alpine3.13
+FROM php:8.0.8-fpm-alpine
 
 MAINTAINER Roni Kumar Saha <roni.csed@gmail.com>
 
@@ -34,8 +34,7 @@ RUN set -ex; \
         ttf-dejavu \
         ttf-droid \
         ttf-freefont \
-        ttf-liberation \
-        ttf-ubuntu-font-family; \
+        ttf-liberation; \
     update-ms-fonts; \
     fc-cache -f; \
     install-php-extensions imagick amqp; \
