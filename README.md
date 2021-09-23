@@ -30,8 +30,11 @@ All image contain following php extension graphviz and composer.
 ### php-8.0-alpine:cli
 This use the cli base image 
 
-### php-8.0-alpine:cli-npm
-This use the cli base image also contain nodejs and npm
+### php-8.0-alpine:npm
+This use the cli base image also contain nodejs and npm and xdebug
 
-### php-8.0-alpine:fpm
+### php-8.0-alpine:fpm or php-8.0-alpine:latest
 This use the fpm base image and contain the wkhtmltopdf with patched QT build binary
+
+### php-8.0-alpine:dev
+This use the fpm base image and contain the wkhtmltopdf with patched QT build binary and xdebug
