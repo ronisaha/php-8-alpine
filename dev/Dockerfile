@@ -27,12 +27,11 @@ RUN set -ex; \
 	\
 	apk add --no-cache \
         imagemagick gettext graphviz; \
-    install-php-extensions imagick amqp sockets; \
+    install-php-extensions imagick amqp sockets xdebug; \
 	pecl install apcu; \
 	pecl install mongodb; \
 	pecl install yaml; \
     pecl install igbinary; \
-    pecl install xdebug; \
     docker-php-ext-enable apcu yaml igbinary xdebug; \
 	echo 'yes,yes' | pecl install redis; \
     docker-php-ext-enable redis; \

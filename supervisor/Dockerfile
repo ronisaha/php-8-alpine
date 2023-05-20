@@ -50,7 +50,7 @@ RUN set -ex; \
 	apk del .build-deps wget ; \
 	rm -rf /tmp/* /usr/local/lib/php/doc/* /var/cache/apk/* /usr/local/bin/install-php-extensions
 
-## Set php configuration
+## Set php cli configuration
 RUN { \
        echo 'date.timezone=Asia/Dhaka'; \
     } > /usr/local/etc/php/conf.d/00-override.ini ;

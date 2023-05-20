@@ -50,7 +50,7 @@ RUN set -ex; \
 	apk del .build-deps wget ; \
 	rm -rf /tmp/* /usr/local/lib/php/doc/* /var/cache/apk/* /usr/local/bin/install-php-extensions
 
-## Set php configuration
+## Copy php configuration
 COPY configs/conf.d/*.ini /usr/local/etc/php/conf.d/
 COPY configs/fpm.d/zz-docker.conf /usr/local/etc/php-fpm.d/
 
