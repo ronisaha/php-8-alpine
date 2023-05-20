@@ -27,7 +27,6 @@ jobs:
             PHP_VERSION=8.2.6
 
             tmpName="image-$RANDOM"
-            cp *.zip $folder/
             cp -r configs $folder/
             docker build $folder --file $folder/Dockerfile --tag $tmpName --build-arg PHP_VERSION=$PHP_VERSION 
             IMAGE_ID=${{ secrets.DOCKER_REGISTRY_URL }}/${{ secrets.IMAGE_NAME }}
