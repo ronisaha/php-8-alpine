@@ -55,7 +55,6 @@ COPY configs/conf.d/*.ini /usr/local/etc/php/conf.d/
 COPY configs/fpm.d/zz-docker.conf /usr/local/etc/php-fpm.d/
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
-COPY --from=symfonycorp/cli:latest /symfony /usr/bin/symfony
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
