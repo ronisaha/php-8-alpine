@@ -1,7 +1,7 @@
-# php-8.0-alpine
-Docker image with php-8.0.10-alpine
+# php-8.2.x-alpine
+Docker image with php-8.2.x-alpine
 
-All image contain following php extension graphviz and composer.
+All image contain following php extension and [composer](https://github.com/composer/composer).
 
 - bcmath
 - gd
@@ -25,16 +25,21 @@ All image contain following php extension graphviz and composer.
 - zip 
 - exif
 - iconv
+- sockets
+- soap
 
 ## Image Variants
-### php-8.0-alpine:cli
-This use the cli base image 
+### php-8-alpine:cli or php-8-alpine:cli-{php-version}
+This use the cli base image also contain nodejs-18.x and npm
 
-### php-8.0-alpine:npm
-This use the cli base image also contain nodejs and npm and xdebug
+### php-8-alpine:fpm or php-8-alpine:fpm-{php-version}
+This use the fpm base image
 
-### php-8.0-alpine:fpm or php-8.0-alpine:latest
-This use the fpm base image and contain the wkhtmltopdf with patched QT build binary
+### php-8-alpine:apache or php-8-alpine:apache-{php-version}
+This use the apache base image
 
-### php-8.0-alpine:dev
-This use the fpm base image and contain the wkhtmltopdf with patched QT build binary and xdebug
+### php-8-alpine:dev or php-8-alpine:dev-{php-version}
+This use the apache base image with xdebug enabled
+
+### php-8-alpine:supervisor or php-8-alpine:supervisor-{php-version}
+This use the cli base image and set supervisor as entry point. Mount any supervisor config file as /etc/supervisor.d/*.ini
