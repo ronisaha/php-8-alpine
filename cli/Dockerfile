@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.2.8
+ARG PHP_VERSION=8.2.9
 FROM php:${PHP_VERSION}-cli-alpine
 
 LABEL org.opencontainers.image.authors="Roni Kumar Saha <roni.csed@gmail.com>"
@@ -27,12 +27,12 @@ RUN set -ex; \
 	\
 	apk add --no-cache \
         imagemagick gettext graphviz nodejs npm; \
-    install-php-extensions imagick amqp sockets; \
+    install-php-extensions imagick amqp sockets xdebug; \
 	pecl install apcu; \
 	pecl install mongodb; \
 	pecl install yaml; \
     pecl install igbinary; \
-    docker-php-ext-enable apcu yaml igbinary; \
+    docker-php-ext-enable apcu yaml igbinary xdebug; \
 	echo 'yes,yes' | pecl install redis; \
     docker-php-ext-enable redis; \
 	docker-php-ext-configure xsl; \
