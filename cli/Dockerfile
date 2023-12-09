@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.2.13
+ARG PHP_VERSION=8.3.0
 FROM php:${PHP_VERSION}-cli-alpine
 
 LABEL org.opencontainers.image.authors="Roni Kumar Saha <roni.csed@gmail.com>"
@@ -27,7 +27,7 @@ RUN set -ex; \
 	\
 	apk add --no-cache \
         imagemagick gettext graphviz nodejs npm; \
-    install-php-extensions imagick amqp sockets xdebug; \
+    install-php-extensions Imagick/imagick@master amqp sockets xdebug; \
 	pecl install apcu; \
 	pecl install mongodb; \
 	pecl install yaml; \
