@@ -1,4 +1,4 @@
-# php-8.2.x-alpine
+# php-8.3.x-alpine
 Docker image with php-8.3.x-alpine
 
 All image contain following php extension and [composer](https://github.com/composer/composer).
