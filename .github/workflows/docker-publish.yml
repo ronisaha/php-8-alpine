@@ -33,7 +33,7 @@ jobs:
           echo "Docker build failed, for ${VERSION}-$PHP_VERSION"
             exit 1
           fi
-          IMAGE_ID=${{ secrets.DOCKER_REGISTRY_URL }}/${{ secrets.DOCKER_USERNAME }}/${{ secrets.IMAGE_NAME }}
+          IMAGE_ID=${{ secrets.DOCKER_REGISTRY_URL }}/${{ secrets.IMAGE_NAME }}
 
           docker tag $tmpName $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
