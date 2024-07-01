@@ -35,6 +35,9 @@ This use the cli base image also contain nodejs-18.x and npm
 ### php-8-alpine:fpm or php-8-alpine:fpm-{php-version}
 This use the fpm base image
 
+### php-8-alpine:dev or php-8-alpine:apache-{php-version}
+This use the apache base image
+
 ### php-8-alpine:dev or php-8-alpine:dev-{php-version}
 This use the apache base image with xdebug enabled
 

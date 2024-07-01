@@ -1,5 +1,5 @@
 ARG PHP_VERSION=8.3.7
-FROM php:${PHP_VERSION}-cli-alpine
+FROM php:${PHP_VERSION}-fpm-alpine
 
 LABEL org.opencontainers.image.authors="Roni Kumar Saha <roni.csed@gmail.com>"
 
@@ -26,7 +26,7 @@ RUN set -ex; \
 	chmod +x /usr/local/bin/install-php-extensions ; \
 	\
 	apk add --no-cache \
-        imagemagick gettext graphviz supervisor; \
+        imagemagick gettext graphviz; \
     install-php-extensions Imagick/imagick@master amqp sockets; \
 	pecl install apcu; \
 	pecl install mongodb; \
@@ -51,10 +51,10 @@ RUN set -ex; \
 	rm -rf /tmp/* /usr/local/lib/php/doc/* /var/cache/apk/* /usr/local/bin/install-php-extensions
 
 ## Set php configuration
-RUN { \
-       echo 'date.timezone=Asia/Dhaka'; \
-    } > /usr/local/etc/php/conf.d/00-override.ini ;
+COPY configs/conf.d/*.ini /usr/local/etc/php/conf.d/
+COPY configs/fpm.d/zz-docker.conf /usr/local/etc/php-fpm.d/
 
-#Make supervisor ad entrypoint
-ENTRYPOINT ["/usr/bin/supervisord"]
-CMD ["-c", "/etc/supervisord.conf", "-n"]
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
