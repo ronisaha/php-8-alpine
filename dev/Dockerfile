@@ -1,4 +1,4 @@
-ARG PHP_VERSION=8.3.13
+ARG PHP_VERSION=8.4.1
 FROM php:${PHP_VERSION}-fpm-alpine
 
 LABEL org.opencontainers.image.authors="Roni Kumar Saha <roni.csed@gmail.com>"
@@ -15,7 +15,7 @@ RUN set -ex; \
 		icu-dev \
 		gettext-dev \
 		$PHPIZE_DEPS \
-		imagemagick-dev libtool\
+		libtool \
 		rabbitmq-c-dev\
 		libxslt-dev libgcrypt-dev \
 		postgresql-dev openldap-dev yaml-dev \
@@ -26,8 +26,8 @@ RUN set -ex; \
 	chmod +x /usr/local/bin/install-php-extensions ; \
 	\
 	apk add --no-cache \
-        imagemagick gettext graphviz; \
-    install-php-extensions Imagick/imagick@master amqp sockets xdebug; \
+         gettext graphviz; \
+    install-php-extensions amqp sockets xdebug; \
 	pecl install apcu; \
 	pecl install mongodb; \
 	pecl install yaml; \
